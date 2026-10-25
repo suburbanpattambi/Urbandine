@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UrbanDine | Arabian Grill &amp; Mandhi, Pattambi</title>
+  <meta name="description" content="Charcoal-fired Alfaham and authentic Yemeni Kuzhi Mandhi in Pattambi. Open daily 12 PM to 11:55 PM." />
+  <meta name="theme-color" content="#E9703F" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 32'%3E%3Cpath fill='%23ffc24b' d='M12.5 1c.9 5.6 7.5 8.6 7.5 16.5a7.5 7.5 0 0 1-15 0c0-3.2 1.6-5.4 3.2-7 .2 2.2 1.2 3.6 2.6 4.4C10.2 9.5 11 5 12.5 1z'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<!--
+  IMAGES: export your Stitch images into an /assets folder with these names
+  (or edit the src attributes below). Missing images fall back to a warm gradient.
+
+  hero.jpg  platter-1.jpg .. platter-4.jpg  about.jpg
+  feature-1.jpg .. feature-4.jpg  gallery-1.jpg .. gallery-8.jpg
+-->
+<body>
+
+  <!-- SVG sprites -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="flame" viewBox="0 0 24 32">
+      <path fill="currentColor" d="M12.5 1c.9 5.600 7.500 8.600 7.500 16.500a7.500 7.500 0 0 1-15 0c0-3.200 1.600-5.400 3.200-7 .2 2.200 1.200 3.600 2.600 4.400C10.200 9.500 11 5 12.500 1z"/>
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 24 24">
+      <path d="M7 17 17 7M8.500 7H17v8.500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <!-- Preloader -->
+  <div class="pre" aria-hidden="true">
+    <div class="pre__inner">
+      <img class="pre__flame pre__icon" src="icon.png" alt="" />
+      <img class="pre__brand pre__word" src="wordmark.png" alt="UrbanDine" />
+      <div class="pre__bar"><i></i></div>
+      <div class="pre__num">0</div>
+    </div>
+  </div>
+
+  <!-- Cursor + progress -->
+  <div class="cursor" aria-hidden="true"><i class="cursor__dot"></i><i class="cursor__ring"></i></div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="wrap nav__in">
+      <a href="#home" class="logo logo--img" aria-label="UrbanDine home">
+        <img class="logo__img" src="logo.png" alt="UrbanDine - Arabian Grill &amp; Mandhi" />
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="#events">Events</a>
+      </nav>
+
+      <a href="tel:+918111807554" class="btn btn--primary nav__cta" data-magnetic>Call to Order</a>
+
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO (pinned, Apple-style reveal) -->
+    <section class="hero" id="home">
+      <div class="hero__media"><img class="hero__img" src="assets/hero.jpg" alt="Yemeni Kuzhi Mandhi with charcoal grilled chicken" onerror="this.style.display='none'" /></div>
+      <div class="hero__overlay"></div>
+      <canvas class="embers" aria-hidden="true"></canvas>
+
+      <div class="hero__content">
+        <span class="pill" data-hero-in>Pattambi's charcoal-fired kitchen</span>
+        <h1 class="hero__title" aria-label="Smoky. Juicy. Unforgettable.">
+          <span class="l1">Smoky. Juicy.</span>
+          <em class="l2">Unforgettable.</em>
+        </h1>
+        <p class="hero__lead" data-hero-in>Where the fire meets flavour. Discover authentic Yemeni Kuzhi Mandhi and charcoal-grilled Arabian favorites, made to bring everyone together.</p>
+        <div class="hero__cta" data-hero-in>
+          <a href="#menu" class="btn btn--primary" data-magnetic>Explore Our Menu</a>
+          <a href="#contact" class="btn btn--ghost" data-magnetic>Book a Table</a>
+        </div>
+        <ul class="chips" data-hero-in>
+          <li>Open 12 PM – 11:55 PM</li>
+          <li>Fresh Mandhi twice daily</li>
+          <li>Family dining</li>
+        </ul>
+      </div>
+
+      <div class="hero__reveal">
+        <span class="eyebrow">The pit never sleeps</span>
+        <h2>Every plate begins with <em>embers.</em></h2>
+      </div>
+
+      <div class="scrollcue" aria-hidden="true"><span>Scroll</span><i></i></div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Charcoal Alfaham</span><i>✦</i><span>Yemeni Kuzhi Mandhi</span><i>✦</i><span>Clay Oven Breads</span><i>✦</i><span>Open till 11:55 PM</span><i>✦</i>
+        <span>Charcoal Alfaham</span><i>✦</i><span>Yemeni Kuzhi Mandhi</span><i>✦</i><span>Clay Oven Breads</span><i>✦</i><span>Open till 11:55 PM</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- SIGNATURE PLATTERS -->
+    <section class="sec" id="platters">
+      <div class="wrap">
+        <div class="sec__head">
+          <div>
+            <span class="eyebrow" data-fade>Straight from the hearth</span>
+            <h2 class="h2" data-split>Signature Charcoal Platters</h2>
+            <p class="lead" data-fade>The dishes everyone comes back for. Fire-kissed, fragrant, and always made for sharing.</p>
+          </div>
+          <a href="#menu" class="link-arrow" data-fade>Explore the full menu <svg><use href="#arrow"/></svg></a>
+        </div>
+
+        <div class="cards4">
+          <article class="pcard" data-tilt>
+            <div class="pcard__img"><img src="assets/platter-1.jpg" alt="Cheese Cream Alfaham" onerror="this.style.display='none'" /><span class="tag">Bestseller</span></div>
+            <div class="pcard__body">
+              <h3>Cheese Cream Alfaham</h3>
+              <p>Creamy, smoky, unforgettable.</p>
+              <div class="pcard__foot"><span>From <b>₹220</b></span><button class="plus" data-add="Cheez Cream Alfaham|220" aria-label="Add Cheese Cream Alfaham to order">+</button></div>
+            </div>
+          </article>
+          <article class="pcard" data-tilt>
+            <div class="pcard__img"><img src="assets/platter-2.jpg" alt="Peri Peri Alfaham" onerror="this.style.display='none'" /><span class="tag">Fire &amp; Spice</span></div>
+            <div class="pcard__body">
+              <h3>Peri Peri Alfaham</h3>
+              <p>A fiery charcoal-kissed favorite.</p>
+              <div class="pcard__foot"><span>From <b>₹170</b></span><button class="plus" data-add="Peri-Peri Alfaham (Quarter)|170" aria-label="Add Peri Peri Alfaham to order">+</button></div>
+            </div>
+          </article>
+          <article class="pcard" data-tilt>
+            <div class="pcard__img"><img src="assets/platter-3.jpg" alt="Chicken Mandhi" onerror="this.style.display='none'" /><span class="tag">Pit Classic</span></div>
+            <div class="pcard__body">
+              <h3>Chicken Mandhi</h3>
+              <p>Slow-cooked in our traditional pit.</p>
+              <div class="pcard__foot"><span>From <b>₹190</b></span><button class="plus" data-add="Chicken Mandhi (Quarter)|190" aria-label="Add Chicken Mandhi to order">+</button></div>
+            </div>
+          </article>
+          <article class="pcard" data-tilt>
+            <div class="pcard__img"><img src="assets/platter-4.jpg" alt="Alfaham Mandhi" onerror="this.style.display='none'" /><span class="tag">House Favorite</span></div>
+            <div class="pcard__body">
+              <h3>Alfaham Mandhi</h3>
+              <p>The best of fire and the feast.</p>
+              <div class="pcard__foot"><span>From <b>₹210</b></span><button class="plus" data-add="Alfaham Mandhi (Quarter)|210" aria-label="Add Alfaham Mandhi to order">+</button></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="sec sec--alt" id="menu">
+      <div class="wrap">
+        <div class="sec__head sec__head--center">
+          <span class="eyebrow" data-fade>Fire, flavour &amp; the finer things</span>
+          <h2 class="h2" data-split>Our Signature Menu</h2>
+          <p class="lead" data-fade>From slow-sealed Mandhi to sizzling charcoal grills, find your next favorite.</p>
+        </div>
+
+        <div class="tabs" role="tablist" data-fade>
+          <button class="tab is-active" role="tab" aria-selected="true" data-tab="alfaham">Alfaham's</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="mandhi">Mandhi Combo</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="specials">Rice &amp; Specials</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="breads">Breads</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="sec" id="about">
+      <div class="wrap about">
+        <div class="about__txt">
+          <span class="eyebrow" data-fade>Rooted in charcoal</span>
+          <h2 class="h2" data-split>Crafted for the Palate.</h2>
+          <p data-scrub>At UrbanDine, every meal begins with fire. Our Yemeni-style mandhi is sealed in the pit until the rice absorbs every drop of flavour, while our Alfaham is slow-grilled over glowing charcoal.</p>
+          <p data-scrub>We bring the warmth of Arabian hospitality to Pattambi, with bold spices, generous platters, and a place for everyone around the table.</p>
+          <a href="#contact" class="btn btn--ghost" data-fade data-magnetic>Find us in Pattambi</a>
+
+          <div class="stats" data-fade>
+            <div><b data-count="17">0</b><span>Alfaham styles</span></div>
+            <div><b><i data-count="2">0</i>×</b><span>Fresh pit openings</span></div>
+            <div><b>11:55</b><span>Open until PM</span></div>
+          </div>
+        </div>
+
+        <div class="about__media reveal-img">
+          <img class="parallax-img" src="assets/about.jpg" alt="Charcoal-fired chicken with mandhi rice and naan" onerror="this.style.display='none'" />
+          <p class="about__cap">Charcoal-fired. Made with heart.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES: horizontal scroll showcase -->
+    <section class="hs" id="why">
+      <div class="hs__track">
+        <div class="hs__intro">
+          <span class="eyebrow">More than a meal</span>
+          <h2 class="h2 h2--xl">Why Foodies <em>Choose Us</em></h2>
+          <p class="lead">Keep scrolling. Four reasons Pattambi keeps coming back.</p>
+          <div class="hs__hint"><span>Scroll</span><svg><use href="#arrow"/></svg></div>
+        </div>
+
+        <article class="hs__panel">
+          <div class="hs__txt">
+            <span class="hs__no">01</span>
+            <span class="eyebrow">The fire</span>
+            <h3>Real charcoal flavour</h3>
+            <p>Slow grilled over live coals for the kind of smokiness you can taste.</p>
+          </div>
+          <div class="hs__media"><img class="hs__img" src="assets/feature-1.jpg" alt="Chicken grilling over live charcoal" onerror="this.style.display='none'" /></div>
+        </article>
+
+        <article class="hs__panel">
+          <div class="hs__txt">
+            <span class="hs__no">02</span>
+            <span class="eyebrow">The pit</span>
+            <h3>Fresh Mandhi daily</h3>
+            <p>Our sealed pit opens twice a day, bringing you the freshest feast.</p>
+          </div>
+          <div class="hs__media"><img class="hs__img" src="assets/feature-2.jpg" alt="Mandhi rice from the sealed pit" onerror="this.style.display='none'" /></div>
+        </article>
+
+        <article class="hs__panel">
+          <div class="hs__txt">
+            <span class="hs__no">03</span>
+            <span class="eyebrow">The table</span>
+            <h3>Made for sharing</h3>
+            <p>Generous platters, private family spaces, and good company.</p>
+          </div>
+          <div class="hs__media"><img class="hs__img" src="assets/feature-3.jpg" alt="Family dining together" onerror="this.style.display='none'" /></div>
+        </article>
+
+        <article class="hs__panel">
+          <div class="hs__txt">
+            <span class="hs__no">04</span>
+            <span class="eyebrow">The hour</span>
+            <h3>Late-night cravings</h3>
+            <p>Come for lunch or stay late. Our kitchen is open until 11:55 PM.</p>
+          </div>
+          <div class="hs__media"><img class="hs__img" src="assets/feature-4.jpg" alt="Warm lit dining room at night" onerror="this.style.display='none'" /></div>
+        </article>
+
+        <div class="hs__end"><a href="#contact" class="btn btn--primary" data-magnetic>Reserve your table</a></div>
+      </div>
+      <div class="hs__progress" aria-hidden="true"><i class="hs__bar"></i></div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="sec" id="gallery">
+      <div class="wrap">
+        <div class="sec__head">
+          <div>
+            <span class="eyebrow" data-fade>A glimpse inside</span>
+            <h2 class="h2" data-split>Moments &amp; Ambiance</h2>
+            <p class="lead" data-fade>Good food, warm light, and evenings worth remembering.</p>
+          </div>
+          <span class="eyebrow" data-fade>The UrbanDine experience</span>
+        </div>
+
+        <div class="gallery">
+          <figure class="g" data-speed="0.06"><img src="assets/gallery-1.jpg" alt="Chef grilling over charcoal" onerror="this.style.display='none'" /></figure>
+          <figure class="g" data-speed="-0.04"><img src="assets/gallery-2.jpg" alt="Charcoal grill with skewers" onerror="this.style.display='none'" /></figure>
+          <figure class="g" data-speed="0.08"><img src="assets/gallery-3.jpg" alt="Mandhi platter" onerror="this.style.display='none'" /></figure>
+          <figure class="g" data-speed="-0.06"><img src="assets/gallery-4.jpg" alt="Grilled chicken plate" onerror="this.style.display='none'" /></figure>
+          <figure class="g" data-speed="0.05"><img src="assets/gallery-5.jpg" alt="Cheese cream Alfaham" onerror="this.style.display='none'" /></figure>
+          <figure class="g" data-speed="-0.07"><img src="assets/gallery-6.jpg" alt="Family dining area" onerror="this.style.display='none'" /></figure>
+          <figure class="g" data-speed="0.04"><img src="assets/gallery-7.jpg" alt="Naan from the clay oven" onerror="this.style.display='none'" /></figure>
+          <figure class="g" data-speed="-0.05"><img src="assets/gallery-8.jpg" alt="Salads and dips" onerror="this.style.display='none'" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="sec sec--alt" id="reviews">
+      <div class="wrap">
+        <div class="sec__head">
+          <div>
+            <span class="eyebrow" data-fade>Diner testimonials</span>
+            <h2 class="h2" data-split>Loved by Pattambi Foodies</h2>
+            <p class="lead" data-fade>The warmth of our table is what keeps our guests coming back.</p>
+          </div>
+          <span class="eyebrow" data-fade>Your next favorite table awaits</span>
+        </div>
+
+        <div class="cards3">
+          <blockquote class="rcard" data-tilt>
+            <div class="stars" aria-label="5 stars">★★★★★</div>
+            <p>“The Cheese Cream Alfaham is out of this world! Super tender meat with the best Mandhi rice in Pattambi. The staff is polite and food comes hot even during peak hours.”</p>
+            <cite>Rahul K.</cite>
+          </blockquote>
+          <blockquote class="rcard" data-tilt>
+            <div class="stars" aria-label="5 stars">★★★★★</div>
+            <p>“Best late-night food spot after long drives. We ordered the Alfaham Pollichath and Garlic Naan. 10/10 flavor, tender charred masala, and genuine charcoal aroma!”</p>
+            <cite>Fathima S.</cite>
+          </blockquote>
+          <blockquote class="rcard" data-tilt>
+            <div class="stars" aria-label="5 stars">★★★★★</div>
+            <p>“Unbeatable portions, reasonable prices, and authentic Yemeni spice fragrance. UrbanDine never disappoints. Their Peri Peri Mandhi is simply addictive.”</p>
+            <cite>Anand V.</cite>
+          </blockquote>
+        </div>
+
+        <div class="cta">
+          <div>
+            <span class="eyebrow">The pit is always warm</span>
+            <h3>Come hungry. Leave happy.</h3>
+            <p>Join us for lunch, a family dinner, or a late-night charcoal feast.</p>
+          </div>
+          <div class="cta__hours">
+            <small>Daily service</small><b>12:00 PM – 11:55 PM</b>
+            <small>Fresh Mandhi unsealed</small><b>12:30 PM &amp; 7:30 PM</b>
+          </div>
+          <a href="#booking" class="btn btn--primary" data-magnetic>Plan your visit</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="sec" id="contact">
+      <div class="wrap">
+        <div class="sec__head">
+          <div>
+            <span class="eyebrow" data-fade>Find us in Pattambi</span>
+            <h2 class="h2" data-split>Visit &amp; Contact UrbanDine</h2>
+            <p class="lead" data-fade>Experience the warmth of Arabian hospitality in the heart of Pattambi. Your table is waiting.</p>
+          </div>
+        </div>
+
+        <div class="cards3">
+          <a class="ccard" href="tel:+918111807554" data-tilt>
+            <span class="eyebrow">Instant desk line</span>
+            <h3>Call UrbanDine</h3>
+            <b class="ccard__link">081118 07554 <svg><use href="#arrow"/></svg></b>
+            <p>Tap to place a phone order or inquiry.</p>
+          </a>
+          <a class="ccard" href="https://wa.me/918111807554" target="_blank" rel="noopener" data-tilt>
+            <span class="eyebrow">Live chat</span>
+            <h3>WhatsApp Order Desk</h3>
+            <b class="ccard__link">+91 81118 07554 <svg><use href="#arrow"/></svg></b>
+            <p>Instant chat for delivery and takeaway.</p>
+          </a>
+          <a class="ccard" href="https://www.google.com/maps/search/?api=1&query=UrbanDine+Pattambi" target="_blank" rel="noopener" data-tilt>
+            <span class="eyebrow">GPS navigation</span>
+            <h3>Get Directions</h3>
+            <b class="ccard__link">Near Sevana Hostel <svg><use href="#arrow"/></svg></b>
+            <p>5 minutes from Pattambi Station.</p>
+          </a>
+        </div>
+
+        <div class="book" id="booking">
+          <form class="form" id="bookingForm" novalidate>
+            <span class="eyebrow">Pre-order &amp; reserve</span>
+            <h3>Book Your Table or Feast Platter</h3>
+            <p class="form__lead">Planning a family dinner or celebrating with friends? Reserve your private spot or secure a platter for your arrival.</p>
+
+            <div class="row">
+              <label class="field"><span>Full Name</span><input type="text" id="fName" placeholder="e.g. Mohammed Rasheed" required /></label>
+              <label class="field"><span>Phone Number</span><input type="tel" id="fPhone" placeholder="e.g. +91 98470 00000" required /></label>
+            </div>
+            <div class="row row--3">
+              <label class="field"><span>Reservation Date</span><input type="date" id="fDate" required /></label>
+              <label class="field"><span>Time</span><input type="time" id="fTime" min="12:00" max="23:55" value="19:30" required /></label>
+              <label class="field"><span>Number of Guests</span>
+                <select id="fGuests">
+                  <option>2 Guests</option>
+                  <option>3 Guests</option>
+                  <option selected>4 Guests (Family Booth)</option>
+                  <option>6 Guests</option>
+                  <option>8+ Guests (Party)</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field"><span>Select Dining Time Slot</span>
+              <div class="slots" id="slots">
+                <button type="button" class="slot" data-slot="Lunch (12 - 4 PM)"><b>Lunch</b><small>12 – 4 PM</small></button>
+                <button type="button" class="slot is-active" data-slot="Evening (4 - 8 PM)"><b>Evening</b><small>4 – 8 PM</small></button>
+                <button type="button" class="slot" data-slot="Late Night (8 - 11:55 PM)"><b>Late Night</b><small>8 – 11:55 PM</small></button>
+              </div>
+            </div>
+
+            <label class="field"><span>Meal / Platter Preference</span>
+              <select id="fMeal">
+                <option>Authentic Yemeni Kuzhi Mandhi</option>
+                <option>Cheese Cream Alfaham</option>
+                <option>Peri Peri Alfaham</option>
+                <option>Alfaham Mandhi</option>
+                <option>Mixed Feast Platter</option>
+              </select>
+            </label>
+            <label class="field"><span>Special Requests &amp; Dietary Notes</span><textarea id="fNotes" rows="3" placeholder="Birthday setup, low spice, private family cabin..."></textarea></label>
+
+            <button type="submit" class="btn btn--primary btn--block" data-magnetic>Request Table / Pre-Order Platter</button>
+            <p class="form__msg" id="formMsg" role="status"></p>
+          </form>
+
+          <aside class="side">
+            <div class="box">
+              <span class="eyebrow">Our Pattambi flagship</span>
+              <h3>Near Sevana Hostel Road</h3>
+              <address>UrbanDine Restaurant<br />Near Sevana Hostel &amp; Research Center Pvt Ltd,<br />Pattambi, Palakkad District,<br />Kerala 679313, India</address>
+              <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&query=UrbanDine+Pattambi" target="_blank" rel="noopener">Open in Google Maps <svg><use href="#arrow"/></svg></a>
+            </div>
+            <div class="box">
+              <span class="eyebrow">Service hours</span>
+              <h3>Every day, every craving.</h3>
+              <p class="muted">Monday – Sunday</p>
+              <p class="hours">12:00 PM – 11:55 PM</p>
+              <p class="muted">Fresh Mandhi unsealed at 12:30 PM &amp; 7:30 PM daily.</p>
+            </div>
+            <div class="map">
+              <iframe title="UrbanDine location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Sevana+Hospital+Pattambi&amp;output=embed"></iframe>
+              <a class="btn btn--primary btn--sm" href="https://www.google.com/maps/search/?api=1&query=UrbanDine+Pattambi" target="_blank" rel="noopener">Get directions</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVATE EVENTS & VENUE BOOKING -->
+    <section class="sec" id="events">
+      <div class="wrap">
+        <div class="sec__head sec__head--center">
+          <span class="eyebrow" data-fade>Private events &amp; venue booking</span>
+          <h2 class="h2" data-split>Host Your Special Event With Us</h2>
+          <p class="lead" data-fade>From intimate celebrations to large gatherings, bring your occasion to UrbanDine and let the charcoal, the feast and Arabian hospitality do the rest.</p>
+        </div>
+
+        <div class="evgrid">
+          <article class="evcard" data-tilt><span class="evcard__ico" aria-hidden="true">🎂</span><h3>Birthdays &amp; Anniversaries</h3></article>
+          <article class="evcard" data-tilt><span class="evcard__ico" aria-hidden="true">💍</span><h3>Bride-to-Be &amp; Groom-to-Be Celebrations</h3></article>
+          <article class="evcard" data-tilt><span class="evcard__ico" aria-hidden="true">🌙</span><h3>Iftar Gatherings</h3></article>
+          <article class="evcard" data-tilt><span class="evcard__ico" aria-hidden="true">🎉</span><h3>Private Parties &amp; School Programs</h3></article>
+          <article class="evcard" data-tilt><span class="evcard__ico" aria-hidden="true">🤝</span><h3>Corporate &amp; Family Events</h3></article>
+        </div>
+
+        <div class="evbook" id="event-booking">
+          <div class="evinfo">
+            <span class="eyebrow">Custom packages</span>
+            <h3>Planned around your occasion</h3>
+            <p>Custom event packages, menu customization and spatial arrangements are tailored specifically to each reservation, so your event feels exactly the way you imagine it.</p>
+            <p><b>Pricing varies</b> based on event size, date, menu choices and requirements, and is finalized upon consultation with the restaurant management.</p>
+            <div class="evcall">
+              <small>Call / WhatsApp for booking</small>
+              <a class="evcall__num" href="tel:+918111807554">081118 07554</a>
+            </div>
+            <div class="evcta">
+              <a href="tel:+918111807554" class="btn btn--primary" data-magnetic>Call to Reserve</a>
+              <a href="https://wa.me/918111807554?text=Hello%20UrbanDine!%20I'd%20like%20to%20enquire%20about%20hosting%20an%20event." target="_blank" rel="noopener" class="btn btn--ghost" data-magnetic>Inquire Now</a>
+            </div>
+          </div>
+
+          <form class="evform" id="eventForm" novalidate>
+            <span class="eyebrow">Event inquiry</span>
+            <h3>Tell us about your event</h3>
+            <p class="evnote">Submit an inquiry or contact us directly to discuss custom menu options and pricing.</p>
+
+            <div class="row">
+              <label class="field"><span>Full Name</span><input type="text" id="eName" placeholder="e.g. Mohammed Rasheed" required /></label>
+              <label class="field"><span>Phone Number</span><input type="tel" id="ePhone" placeholder="e.g. +91 98470 00000" required /></label>
+            </div>
+            <label class="field"><span>Event Type</span>
+              <select id="eType">
+                <option>Birthdays &amp; Anniversaries</option>
+                <option>Bride-to-Be &amp; Groom-to-Be Celebrations</option>
+                <option>Iftar Gatherings</option>
+                <option>Private Parties &amp; School Programs</option>
+                <option>Corporate &amp; Family Events</option>
+              </select>
+            </label>
+            <div class="row">
+              <label class="field"><span>Estimated Guest Count</span><input type="number" id="eGuests" min="1" inputmode="numeric" placeholder="e.g. 40" required /></label>
+              <label class="field"><span>Preferred Date</span><input type="date" id="eDate" required /></label>
+            </div>
+            <label class="field"><span>Special Requests / Notes</span><textarea id="eNotes" rows="3" placeholder="Decorations, menu preferences, seating arrangement..."></textarea></label>
+
+            <button type="submit" class="btn btn--primary btn--block" data-magnetic>Send Event Inquiry</button>
+            <p class="form__msg" id="eventMsg" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec" id="faq">
+      <div class="wrap faq">
+        <div class="faq__head">
+          <span class="eyebrow" data-fade>Help &amp; answers</span>
+          <h2 class="h2" data-split>Frequently Asked Questions</h2>
+          <p class="lead" data-fade>Everything you need to know before visiting.</p>
+        </div>
+
+        <!-- EDIT: confirm these answers with the restaurant before launch -->
+        <div class="faq__list">
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">Do you have private dining cabins for families?<span class="faq__icon">+</span></button>
+            <div class="faq__a"><p>Yes. Family cabins and booths are available. Reserve using the booking form above or call us so we can hold the space for you.</p></div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">Is parking space easily available at the premises?<span class="faq__icon">+</span></button>
+            <div class="faq__a"><p>Parking is available near the restaurant. Call us on 081118 07554 and we will guide you to the easiest spot.</p></div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">Can we pre-order for big parties or family gatherings?<span class="faq__icon">+</span></button>
+            <div class="faq__a"><p>Absolutely. Use the pre-order form or WhatsApp us a day ahead with your guest count and preferred platters.</p></div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">Are digital payments and credit cards accepted?<span class="faq__icon">+</span></button>
+            <div class="faq__a"><p>Yes, UPI and major cards are accepted along with cash.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <a href="#home" class="logo logo--brand">
+            <img class="logo__icon" src="icon.png" alt="" />
+            <img class="logo__word" src="wordmark.png" alt="UrbanDine" />
+          </a>
+          <p class="muted footer__about">Pattambi's home of authentic Arabian flame grills and Yemeni Kuzhi Mandhi. Charcoal-fired daily.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="#home">Home</a><a href="#menu">Our Signature Menu</a><a href="#about">Our Story</a><a href="#gallery">Photo Gallery</a><a href="#events">Private Events</a>
+        </div>
+        <div>
+          <h4>Operating Hours</h4>
+          <p class="muted">Daily: 12:00 PM – 11:55 PM</p>
+          <p class="muted">Fresh Mandhi at 12:30 PM &amp; 7:30 PM</p>
+        </div>
+        <div>
+          <h4>Visit &amp; Connect</h4>
+          <p class="muted">Near Sevana Hostel Road, Pattambi, Kerala 679313</p>
+          <a href="tel:+918111807554">081118 07554</a>
+        </div>
+      </div>
+      <div class="footer__mark" aria-hidden="true">URBANDINE</div>
+      <div class="footer__bar">
+        <span>© <span id="year">2026</span> UrbanDine, Pattambi. All rights reserved.</span>
+        <span>Authentic Arabian Hospitality &amp; Kuzhi Mandhi</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating order bar -->
+  <div class="orderbar" id="orderbar" aria-live="polite">
+    <div class="ocart" id="ocart" data-lenis-prevent hidden>
+      <div class="ocart__head"><b>Your order</b><button type="button" class="orderbar__clear" id="ocartClose" aria-label="Close order list">×</button></div>
+      <ul class="ocart__list" id="ocartList"></ul>
+      <fieldset class="otype">
+        <legend class="sr">Order type</legend>
+        <label><input type="radio" name="otype" value="Dining" checked /><span>Dining</span></label>
+        <label><input type="radio" name="otype" value="Parcel (Takeaway)" /><span>Parcel</span></label>
+        <label><input type="radio" name="otype" value="Delivery" /><span>Delivery</span></label>
+      </fieldset>
+      <input class="ocart__addr" id="oAddr" type="text" placeholder="Delivery address (house, landmark, area)" autocomplete="street-address" hidden />
+    </div>
+    <button type="button" class="orderbar__toggle" id="orderToggle" aria-expanded="false" aria-controls="ocart"><span><b id="orderCount">0</b> items<em id="orderTotal"></em></span> <span aria-hidden="true">▴</span></button>
+    <button class="btn btn--primary btn--sm" id="orderSend">Send order on WhatsApp</button>
+    <button class="orderbar__clear" id="orderClear" aria-label="Clear order">×</button>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Image preview"><button class="lightbox__x" aria-label="Close preview">×</button><img alt="" /></div>
+
+  <!-- Order matters: GSAP, ScrollTrigger, Lenis, then main.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
