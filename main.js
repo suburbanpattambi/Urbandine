@@ -23,7 +23,7 @@ const finePointer  = matchMedia("(hover: hover) and (pointer: fine)").matches;
    0. EDITABLE CONTENT
    price: null shows "Ask us". Edit these lists to match your real menu.
    -------------------------------------------------------------------------- */
-const WHATSAPP = "918111807554";
+let WHATSAPP = "918111807554"; /* the CMS can change this (Phone & WhatsApp) */
 
 /* IMAGES: paste your own paths or full URLs here (CDN, Cloudinary, Imgur, etc.).
    Any key left as-is keeps the default path written in index.html. */
@@ -498,6 +498,7 @@ $("#eventForm").addEventListener("submit", (e) => {
 /* --------------------------------------------------------------------------
    6. FAQ ACCORDION
    -------------------------------------------------------------------------- */
+function initFaq() {
 $$(".faq__item").forEach((item) => {
   const q = $(".faq__q", item), a = $(".faq__a", item), icon = $(".faq__icon", item);
   q.addEventListener("click", () => {
@@ -515,6 +516,7 @@ $$(".faq__item").forEach((item) => {
     gsap.to(icon, { rotation: open ? 45 : 0, duration: 0.5, ease: "back.out(2)" });
   });
 });
+}
 
 /* --------------------------------------------------------------------------
    7. NAV (hide on scroll down, show on up, mobile menu, anchors, active link)
@@ -862,6 +864,12 @@ async function boot() {
 
   enhanceButtons();
   await loadSheetMenu(); // uses the Google Sheet when MENU_SHEET_URL is set
+  /* CMS content (Sanity). Never blocks the site: falls back to the built-in content. */
+  try {
+    const cms = window.loadCMS ? await window.loadCMS(MENU) : {};
+    if (cms.whatsapp) WHATSAPP = cms.whatsapp;
+  } catch (err) { console.warn("CMS content skipped:", err); }
+  initFaq();
   renderMenu("alfaham", false);
   bindCursorTargets();
   initPointerFX();
